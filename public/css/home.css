@@ -1,0 +1,28 @@
+
+
+.jumbotron{
+  background: url('https://s7.jcrew.com/is/image/jcrew/2017apr_hp2_wlwlred?wid=1258&fmt=jpeg&qlt=80&resMode=sharp') no-repeat top center;
+  /*background-repeat: no-repeat;*/
+  /*background-size: cover;*/
+  height: 500px;
+  overflow: none;
+  /*height: 65vh;*/
+  /*background-position: top;*/
+
+}
+
+.featured_slick img{
+  height: 30em;
+  width:25em;
+}
+
+
+@media only screen and (max-width: 767px){
+  .jumbotron{
+  height: 30vh;
+  width: 100%;
+  background-size: cover;
+
+  }
+
+}

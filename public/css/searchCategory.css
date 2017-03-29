@@ -1,0 +1,24 @@
+.searchProductsContainer{
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  justify-content: center;
+  padding-top: 3em;
+}
+
+.searchProductsContainer ul{
+  list-style-type: none;
+}
+
+.searchProductsContainer p{
+  text-align: center;
+}
+
+
+/*
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 970px;
+    }
+}*/

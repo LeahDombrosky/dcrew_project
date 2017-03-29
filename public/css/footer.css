@@ -1,0 +1,25 @@
+footer{
+  background-color: #333;
+  color: white;
+  padding: 25px 0 20px 0;
+}
+
+footer li{
+  /*float: left;*/
+  /*padding 0 10px 0 10px;*/
+  list-style: none;
+}
+
+footer a {
+  color:white;
+}
+
+.footer_padding {
+  padding: 0 20px;
+}
+/*#ass{
+  width: 100vw;
+  position: relative;
+  left: 0;
+  bottom: 0;
+}*/

@@ -1,0 +1,68 @@
+<div class='navbar_wrap'>
+
+
+    <!-- <nav class='flexbox_nav'> -->
+        <div style="margin-top:2em"class='nav1'>
+            <!-- <input type="text" placeholder="Search">
+            <button type="submit" class="btn btn-default">Find</button> -->
+        </div>
+
+        <div ui-sref='home'style='text-align:center; font-size:4em' class='nav2'>
+            D.CREW
+        </div>
+
+        <div style='text-align : end; padding-right: 3em; margin-top:2em' class='nav1'>
+            <!-- <a ui-sref='cart'><i class="fa fa-shopping-bag" aria-hidden="true">&nbsp BAG</a></i> -->
+        </div>
+    <!-- </nav> -->
+</div>
+
+<!-- <nav class="navbar navbar-default">
+    <div class="navbar-center navbar-brand" href="#"><a ui-sref='home' class="navbar-brand">D.CREW</a></div>
+    <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <button type="submit" class="btn btn-default">Find</button>
+      </div>
+
+    </form>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a ui-sref='cart'><i class="fa fa-shopping-bag" aria-hidden="true">&nbsp BAG</a></i></li>
+    </ul>
+</nav>
+-->
+<div class="header_department-nav">
+        <div class="department-nav_list">
+        
+
+              <li>
+                <input type="text" placeholder="Search">
+                <button type="submit" class="btn btn-default">Find</button>
+              </li>
+
+
+
+            <li style="margin-left:0"><a ui-sref="searchCategory({category: 'women'})">Women</a></li>
+
+            <li><a ui-sref="searchCategory({category: 'men'})">Men</a></li>
+
+            <li><a ui-sref='search'>Accessories</a></li>
+
+            <li><a ui-sref='sale'>Sale</a></li>
+          <li>     <a ui-sref='cart'><i class="fa fa-shopping-bag" aria-hidden="true">&nbsp BAG</a></i></li>
+
+
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<style>
+
+hr{
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+</style>
