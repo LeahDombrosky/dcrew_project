@@ -13,13 +13,19 @@
         <!-- <div class="featured_slick"> -->
 
         <div class = "searchProductsContainer ">
-            <ul class="categoryProducts" dir-paginate="product in products | itemsPerPage: pageSize" current-page="currentPage">
-                <li>
+            <ul class="categoryProducts" dir-paginate="product in products | itemsPerPage: pageSize | filter: searchFilter" current-page="currentPage">
+
+
+
+                <li ui-sref="product({id:product.id})">
                     <img ng-src={{product.img1}}>
                     <p>{{product.name}}</p>
-                    <p> {{product.price}}</p>
+                    <p> {{product.price | currency}}</p>
                     <!-- <hr> -->
                 </li>
+
+<!-- ASK MENTOR, wrap all of li element in anchor ui sref ?    <a ui-sref='product({id: ???? })'     -->
+
             </ul>
 
           </div>

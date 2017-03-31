@@ -1,0 +1,40 @@
+<nav-component> </nav-component>
+
+
+
+<div class="searchWrap">
+    <div class="featured_slick">
+
+
+
+        <div style="padding-top:2em"class="col-md-12 text-center">
+            <button id="singlebutton" name="singlebutton" class="btn btn-primary">Filter</button>
+        </div>
+        <!-- <div class="featured_slick"> -->
+
+        <div class = "searchProductsContainer ">
+            <ul class="categoryProducts" ng-repeat="product in products |filter: searchFilter">
+
+
+
+                <li ui-sref="product({id:product.id})">
+                    <img ng-src={{product.img1}}>
+                    <p>{{product.name}}</p>
+                    <p> {{product.price | currency}}</p>
+                    <!-- <hr> -->
+                </li>
+
+<!-- ASK MENTOR, wrap all of li element in anchor ui sref ?    <a ui-sref='product({id: ???? })'     -->
+
+            </ul>
+
+          </div>
+          <div class="row">
+
+            <!-- <dir-pagination-controls class="col-md-12 text-center" boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls> -->
+          </div>
+
+<div class="">
+  <footer-component> </footer-component>
+
+</div>

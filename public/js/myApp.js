@@ -16,6 +16,11 @@ angular.module('myApp', ['ui.router', 'angularUtils.directives.dirPagination'])
           templateUrl:'/views/searchCategory.html',
           controller:'searchCategoryCtrl'
         })
+        .state('searchTerm',{
+          url:'/searchTerm/:term',
+          templateUrl:'/views/searchterm.html',
+          controller:'searchCategoryCtrl'
+        })
         .state('product',{
           url:'/product/:id',
           templateUrl: '/views/product.html',

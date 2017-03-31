@@ -1,11 +1,15 @@
 angular.module('myApp').service('mainSrv', function($http) {
 
-    this.getProducts = function() {
+    this.allProducts;
+
+    this.getProducts = ()=> {
         return $http({
             method: 'GET',
             url: '/api/products'
-        }).then(function(response) {
-            console.log(response);
+        }).then((response) =>{
+            // console.log(response);
+            this.allProducts = response.data;
+            console.log(this.allProducts);
             return response.data;
         });
     };
@@ -25,6 +29,16 @@ angular.module('myApp').service('mainSrv', function($http) {
 };
 
 
+  this.getProduct = function(id){
+    console.log(id);
+    return $http({
+      method: 'GET',
+      url: '/api/products/' + id
+    }).then(function(response){
+      console.log(response);
+      return response.data[0];
+    });
+  };
 
 
 

@@ -1,0 +1,19 @@
+.image-wrapper{
+  min-height: 100vh;
+  /*helps with transition load of slick*/
+  /*width: 25px;*/
+}
+.slick-slide{
+width: 10vw;
+}
+.slider{
+  width: 25vw;
+}
+
+.slider-nav{
+  padding-top: 1em;
+}
+
+
+.slider { display: none; }
+.slider.slick-initialized { display: block; }

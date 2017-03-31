@@ -10,6 +10,10 @@ angular.module('myApp').controller('searchPageCtrl', function ($scope, mainSrv, 
 
 
 
+      mainSrv.getProduct($stateParams.id).then(function(response){
+        $scope.product = response;
+      });
+
 
 
 });

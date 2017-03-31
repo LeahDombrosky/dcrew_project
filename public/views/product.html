@@ -1,3 +1,96 @@
+<nav-component>
+</nav-component>
+<header class="breadcrumbs container">
+    <a href="/#/">Home</a> >
+    <a href="#/">{{product.name}}</a>
+
+</header>
+
+<div class="product-page-body container">
+    <div class="image-wrapper">
 
 
-{{products}}
+
+
+
+        <div class="slider slider-for">
+
+          <img ng-src={{product.img1}}>
+          <img ng-src={{product.img2}}>
+          <img ng-src={{product.img3}}>
+        </div>
+
+        <div class="slider slider-nav">
+
+            <img ng-src={{product.img1}}>
+            <img ng-src={{product.img2}}>
+            <img ng-src={{product.img3}}>
+            <!-- <img ng-src={{product.img4}}> -->
+
+
+        </div>
+
+
+
+
+    </div>
+</div>
+
+
+
+        <section class="main-product-info">
+            <h2>{{product.name}}</h2>
+            <h3>{{product.price | currency}}</h3>
+            <div class="status">
+                In Stock
+            </div>
+            <p>
+                {{product.description}}
+            </p>
+            <div class="buttons">
+                <h5>Quantity</h5>
+                <form class="quantity">
+                    <input type='button' value='-' class='qtyminus' field='quantity' />
+                    <input type='text' name='quantity' value='0' class='qty' />
+                    <input type='button' value='+' class='qtyplus' field='quantity' />
+                </form>
+
+
+
+
+
+
+<footer-component></footer-component>
+
+
+
+<script>
+    angular.element(document).ready(function() {
+        // $('.product-page-body').slick({});
+
+      setTimeout(function(){
+
+
+        $('.slider-for').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          fade: true,
+          asNavFor: '.slider-nav'
+        }).hide().fadeIn('slow');
+        $('.slider-nav').slick({
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          asNavFor: '.slider-for',
+          // dots: true,
+          centerMode: true,
+          arrows: true,
+          focusOnSelect: true,
+          // variableWidth: true
+        }).hide().fadeIn('slow');
+      },500)
+    });
+
+
+
+</script>

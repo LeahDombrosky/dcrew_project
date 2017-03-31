@@ -17,30 +17,14 @@
     <!-- </nav> -->
 </div>
 
-<!-- <nav class="navbar navbar-default">
-    <div class="navbar-center navbar-brand" href="#"><a ui-sref='home' class="navbar-brand">D.CREW</a></div>
-    <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-            <button type="submit" class="btn btn-default">Find</button>
-      </div>
 
-    </form>
-    <ul class="nav navbar-nav navbar-right">
-        <li><a ui-sref='cart'><i class="fa fa-shopping-bag" aria-hidden="true">&nbsp BAG</a></i></li>
-    </ul>
-</nav>
--->
 <div class="header_department-nav">
         <div class="department-nav_list">
-        
 
-              <li>
-                <input type="text" placeholder="Search">
-                <button type="submit" class="btn btn-default">Find</button>
-              </li>
-
-
+            <li style="margin-right:3em">
+              <input ng-model='searchInput' type="text" placeholder="Search">
+              <button ng-click='search(searchInput)' type="submit" class="btn btn-default">Find</button>
+            </li>
 
             <li style="margin-left:0"><a ui-sref="searchCategory({category: 'women'})">Women</a></li>
 
