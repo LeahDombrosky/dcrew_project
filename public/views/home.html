@@ -21,7 +21,7 @@
         <div class="featured_slick">
 
             <div ng-repeat = "product in products">
-              <img ng-src={{product.img1}}>
+              <img ui-sref="product({id:product.id})" ng-src={{product.img1}}>
             </div>
             <!-- <div><a ui-sref="product({id: 1})"><img src="https://i.s-jcrew.com/is/image/jcrew/A2297_WD5374?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&wid=636&hei=636" alt=""></a></div>
             <div><img src="https://i.s-jcrew.com/is/image/jcrew/G0781_WU8428?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&wid=636&hei=636" alt=""></div>

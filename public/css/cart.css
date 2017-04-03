@@ -1,0 +1,21 @@
+.cart-image{
+  height:20rem;
+}
+
+
+.product-image, .product-details{
+  display: inline-block;
+}
+
+
+.product-container{
+  padding: 1em;
+}
+
+
+
+.total-container{
+  float:right;
+  border: 1px solid black;
+  float: right;
+}

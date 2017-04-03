@@ -1,23 +1,23 @@
-<nav-component>
-</nav-component>
-<header class="breadcrumbs container">
-    <a href="/#/">Home</a> >
-    <a href="#/">{{product.name}}</a>
-
-</header>
+<nav-component> </nav-component>
 
 <div class="product-page-body container">
-    <div class="image-wrapper">
+
+  <header class="breadcrumbs container">
+    <a href="/#/">Home</a>
+    >
+    <a href=>{{product.name}}</a>
+
+  </header>
 
 
 
-
+    <div class="image-wrapper col-md-6 col-sm-6 col-xs-6">
 
         <div class="slider slider-for">
 
-          <img ng-src={{product.img1}}>
-          <img ng-src={{product.img2}}>
-          <img ng-src={{product.img3}}>
+            <img ng-src={{product.img1}}>
+            <img ng-src={{product.img2}}>
+            <img ng-src={{product.img3}}>
         </div>
 
         <div class="slider slider-nav">
@@ -27,70 +27,112 @@
             <img ng-src={{product.img3}}>
             <!-- <img ng-src={{product.img4}}> -->
 
-
         </div>
 
-
-
-
     </div>
-</div>
 
 
 
-        <section class="main-product-info">
-            <h2>{{product.name}}</h2>
-            <h3>{{product.price | currency}}</h3>
-            <div class="status">
-                In Stock
-            </div>
-            <p>
-                {{product.description}}
-            </p>
-            <div class="buttons">
-                <h5>Quantity</h5>
-                <form class="quantity">
-                    <input type='button' value='-' class='qtyminus' field='quantity' />
-                    <input type='text' name='quantity' value='0' class='qty' />
-                    <input type='button' value='+' class='qtyplus' field='quantity' />
-                </form>
+    <section class="main-product-info col-md-6 col-sm-6 col-xs-6">
+        <h2>{{product.name}}</h2>
+        <h3>{{product.price | currency}}</h3>
+        <div class="status">
+            In Stock
+        </div>
+
+        <p class='productDescription_color'>Color: {{product.color}}</p>
+
+
+        <p class='productDescription_head'>Description</p>
+        <p class='productDescription_text'>
+            {{product.description}}
+        </p>
+        <div class="buttons">
+            <h5>Quantity</h5>
+            <form class="quantity">
+                <input type='button' value='-' class='qtyminus' field='quantity' />
+                <input type='text' name='quantity' value='0' class='qty' />
+                <input type='button' value='+' class='qtyplus' field='quantity' />
+            </form>
+
+          <!-- NG click add to bag  in productsCtrl-->
+          <button class='add-to-bag' ng-click="addToBag(product)">Add To Bag</button>
+
+    </section>
+    </div>
+    <div class="alert alert-danger" ng-if="error">Sorry! There was a problem with your cart</div>
+
+
+
+    <footer-component></footer-component>
+
+
+
+    <script>
+        angular.element(document).ready(function() {
+            // $('.product-page-body').slick({});
+
+            setTimeout(function() {
+
+
+                $('.slider-for').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    fade: true,
+                    asNavFor: '.slider-nav'
+                }).hide().fadeIn('slow');
+                $('.slider-nav').slick({
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    asNavFor: '.slider-for',
+                    // dots: true,
+                    centerMode: true,
+                    arrows: true,
+                    focusOnSelect: true,
+                    // variableWidth: true
+                }).hide().fadeIn('slow');
+            }, 500)
+        });
 
 
 
 
+        jQuery(document).ready(function(){
+          // This button will increment the value
+          $('.qtyplus').click(function(e){
+              // Stop acting like a button
+              e.preventDefault();
+              // Get the field name
+              fieldName = $(this).attr('field');
+              // Get its current value
+              var currentVal = parseInt($('input[name='+fieldName+']').val());
+              // If is not undefined
+              if (!isNaN(currentVal)) {
+                  // Increment
+                  $('input[name='+fieldName+']').val(currentVal + 1);
+              } else {
+                  // Otherwise put a 0 there
+                  $('input[name='+fieldName+']').val(0);
+              }
+          });
+          // This button will decrement the value till 0
+          $(".qtyminus").click(function(e) {
+              // Stop acting like a button
+              e.preventDefault();
+              // Get the field name
+              fieldName = $(this).attr('field');
+              // Get its current value
+              var currentVal = parseInt($('input[name='+fieldName+']').val());
+              // If it isn't undefined or its greater than 0
+              if (!isNaN(currentVal) && currentVal > 0) {
+                  // Decrement one
+                  $('input[name='+fieldName+']').val(currentVal - 1);
+              } else {
+                  // Otherwise put a 0 there
+                  $('input[name='+fieldName+']').val(0);
+              }
+          });
+      });
 
-
-<footer-component></footer-component>
-
-
-
-<script>
-    angular.element(document).ready(function() {
-        // $('.product-page-body').slick({});
-
-      setTimeout(function(){
-
-
-        $('.slider-for').slick({
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: false,
-          fade: true,
-          asNavFor: '.slider-nav'
-        }).hide().fadeIn('slow');
-        $('.slider-nav').slick({
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          asNavFor: '.slider-for',
-          // dots: true,
-          centerMode: true,
-          arrows: true,
-          focusOnSelect: true,
-          // variableWidth: true
-        }).hide().fadeIn('slow');
-      },500)
-    });
-
-
-
-</script>
+    </script>

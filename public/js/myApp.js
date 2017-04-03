@@ -31,8 +31,9 @@ angular.module('myApp', ['ui.router', 'angularUtils.directives.dirPagination'])
           templateUrl:'/views/sale.html'
         })
         .state('cart',{
-          url:'/cart',
-          templateUrl:'/views/cart.html'
+          url:'/cart/:id',
+          templateUrl:'/views/cart.html',
+          controller: 'cartCtrl'
         });
 
 

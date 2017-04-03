@@ -22,9 +22,6 @@ angular.module('myApp').controller('searchCategoryCtrl', function($scope, mainSr
     $scope.currentPage = 1;
     $scope.pageSize = 4;
 
-
-
-
     //////
 
 

@@ -19,6 +19,11 @@
   flex-grow: 2;
 }*/
 
+.logo{
+  width: 7em;
+  height: 2em;
+}
+
 .header_department-nav{
   justify-content: center;
   display: -webkit-flex;

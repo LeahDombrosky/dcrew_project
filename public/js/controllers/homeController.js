@@ -1,4 +1,4 @@
-angular.module('myApp').controller('homeController', function($scope, mainSrv, $state){
+angular.module('myApp').controller('homeController', function($scope, mainSrv, $state, $stateParams){
 
 $scope.test = 'test is working';
 
@@ -36,6 +36,9 @@ $scope.test = 'test is working';
 //   }
 
 
+      mainSrv.getProduct($stateParams.id).then(function(response){
+        $scope.product = response;
+      });
 
 
 
