@@ -2,12 +2,11 @@
 
 <div class="product-page-body container">
 
-  <header class="breadcrumbs container">
-    <a href="/#/">Home</a>
-    >
-    <a href=>{{product.name}}</a>
+    <header class="breadcrumbs container">
+        <a href="/#/">Home</a> >
+        <a href=>{{product.name}}</a>
 
-  </header>
+    </header>
 
 
 
@@ -36,6 +35,24 @@
     <section class="main-product-info col-md-6 col-sm-6 col-xs-6">
         <h2>{{product.name}}</h2>
         <h3>{{product.price | currency}}</h3>
+        <!-- stars start -->
+        <div class="row">
+            <div class="col-md-3 col-sm-3 stars">
+                <span class="sr-only">Four out of Five Stars</span>
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                <!-- <span class="label label-success">61</span> -->
+            </div>
+            <!-- <div class="col-md-3">
+      <span class="monospaced">Write a Review</span>
+     </div> -->
+        </div>
+        <!-- end row -->
+
+        <!-- stats end  -->
         <div class="status">
             In Stock
         </div>
@@ -51,88 +68,141 @@
             <h5>Quantity</h5>
             <form class="quantity">
                 <input type='button' value='-' class='qtyminus' field='quantity' />
-                <input type='text' name='quantity' value='0' class='qty' />
+                <input type='text' name='quantity' value='1' class='qty' />
                 <input type='button' value='+' class='qtyplus' field='quantity' />
             </form>
 
-          <!-- NG click add to bag  in productsCtrl-->
-          <button class='add-to-bag' ng-click="addToBag(product)">Add To Bag</button>
+            <!-- NG click add to bag  in productsCtrl-->
+            <button class='add-to-bag' ng-click="addToBag(product)">Add To Bag</button>
+
+            <!-- Review and Tabs-->
+            <div class="row">
+                <div class="col-md-12">
+                    <form name="outerForm" class="tab-form-demo">
+                        <uib-tabset active="activeForm">
+                            <uib-tab index="0" heading="Reviews">
+
+                                <div id="rateYo"></div>
+                                <!-- <ng-form name="nestedForm">
+                                    <div class="form-group">
+                                        <label>Rick</label>
+                                        <input type="text" class="form-control" required ng-model="model.name" />
+                                        <label>Morty</label>
+                                        <input type="text" class="form-control" required ng-model="model.name" />
+                                    </div>
+                                </ng-form> -->
+                            </uib-tab>
+                            <uib-tab index="1" heading="Features">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum tempore non asperiores ratione harum beatae in consequuntur fugiat officia ut maiores eius corporis, voluptas! Ad necessitatibus voluptas quae asperiores vitae!
+                            </uib-tab>
+                            <uib-tab index="2" heading="Notes">
+                                Williamsburg iPhone locavore hammock, ennui farm-to-table man braid whatever poke flexitarian selvage. Pinterest wolf gentrify, four dollar toast lyft gluten-free viral unicorn hexagon crucifix subway tile helvetica knausgaard fixie waistcoat. Freegan
+                                four loko hot chicken copper mug brooklyn. Poke next level activated charcoal, tacos keffiyeh 3 wolf moon helvetica crucifix sustainable meggings tousled readymade blue bottle occupy. </uib-tab>
+                        </uib-tabset>
+                    </form>
+                    <!-- Model:
+                    <pre>{{ model | json }}</pre> Nested Form:
+                    <pre>{{ outerForm.nestedForm | json }}</pre> -->
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
 
     </section>
-    </div>
-    <div class="alert alert-danger" ng-if="error">Sorry! There was a problem with your cart</div>
+</div>
+<div class="alert alert-danger" ng-if="error">Sorry! There was a problem with your cart</div>
 
 
 
-    <footer-component></footer-component>
+<footer-component></footer-component>
 
 
 
-    <script>
-        angular.element(document).ready(function() {
-            // $('.product-page-body').slick({});
+<script>
+    angular.element(document).ready(function() {
+        // $('.product-page-body').slick({});
 
-            setTimeout(function() {
-
-
-                $('.slider-for').slick({
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    arrows: false,
-                    fade: true,
-                    asNavFor: '.slider-nav'
-                }).hide().fadeIn('slow');
-                $('.slider-nav').slick({
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    asNavFor: '.slider-for',
-                    // dots: true,
-                    centerMode: true,
-                    arrows: true,
-                    focusOnSelect: true,
-                    // variableWidth: true
-                }).hide().fadeIn('slow');
-            }, 500)
-        });
+        setTimeout(function() {
 
 
+            $('.slider-for').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: true,
+                asNavFor: '.slider-nav'
+            }).hide().fadeIn('slow');
+            $('.slider-nav').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                asNavFor: '.slider-for',
+                // dots: true,
+                centerMode: true,
+                arrows: true,
+                focusOnSelect: true,
+                // variableWidth: true
+            }).hide().fadeIn('slow');
+        }, 500)
+    });
 
 
-        jQuery(document).ready(function(){
-          // This button will increment the value
-          $('.qtyplus').click(function(e){
-              // Stop acting like a button
-              e.preventDefault();
-              // Get the field name
-              fieldName = $(this).attr('field');
-              // Get its current value
-              var currentVal = parseInt($('input[name='+fieldName+']').val());
-              // If is not undefined
-              if (!isNaN(currentVal)) {
-                  // Increment
-                  $('input[name='+fieldName+']').val(currentVal + 1);
-              } else {
-                  // Otherwise put a 0 there
-                  $('input[name='+fieldName+']').val(0);
-              }
-          });
-          // This button will decrement the value till 0
-          $(".qtyminus").click(function(e) {
-              // Stop acting like a button
-              e.preventDefault();
-              // Get the field name
-              fieldName = $(this).attr('field');
-              // Get its current value
-              var currentVal = parseInt($('input[name='+fieldName+']').val());
-              // If it isn't undefined or its greater than 0
-              if (!isNaN(currentVal) && currentVal > 0) {
-                  // Decrement one
-                  $('input[name='+fieldName+']').val(currentVal - 1);
-              } else {
-                  // Otherwise put a 0 there
-                  $('input[name='+fieldName+']').val(0);
-              }
-          });
-      });
 
-    </script>
+
+    jQuery(document).ready(function() {
+    // This button will increment the value
+    $('.qtyplus').click(function(e) {
+        // Stop acting like a button
+        e.preventDefault();
+        // Get the field name
+        fieldName = $(this).attr('field');
+        // Get its current value
+        var currentVal = parseInt($('input[name=' + fieldName + ']').val());
+        // If is not undefined
+        if (!isNaN(currentVal)) {
+            // Increment
+            $('input[name=' + fieldName + ']').val(currentVal + 1);
+        } else {
+            // Otherwise put a 0 there
+            $('input[name=' + fieldName + ']').val(0);
+        }
+    });
+    // This button will decrement the value till 0
+    $(".qtyminus").click(function(e) {
+        // Stop acting like a button
+        e.preventDefault();
+        // Get the field name
+        fieldName = $(this).attr('field');
+        // Get its current value
+        var currentVal = parseInt($('input[name=' + fieldName + ']').val());
+        // If it isn't undefined or its greater than 0
+        if (!isNaN(currentVal) && currentVal > 0) {
+            // Decrement one
+            $('input[name=' + fieldName + ']').val(currentVal - 1);
+        } else {
+            // Otherwise put a 0 there
+            $('input[name=' + fieldName + ']').val(0);
+        }
+    });
+
+
+
+
+    // $("#rateYo").rateYo({
+    // 
+    //     rating: 4.0,
+    //     spacing: "5px",
+    //     multiColor: {
+    //
+    //         "startColor": "#FF0000", //RED
+    //         "endColor": "#00FF00" //GREEN
+    //     }
+    // });
+
+
+
+
+
+
+
+    });
+</script>

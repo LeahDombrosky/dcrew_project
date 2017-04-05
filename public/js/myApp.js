@@ -1,4 +1,4 @@
-angular.module('myApp', ['ui.router', 'angularUtils.directives.dirPagination'])
+angular.module('myApp', ['ui.router', 'angularUtils.directives.dirPagination', 'ui.bootstrap'])
   .config(function($stateProvider, $urlRouterProvider, $sceProvider){
       $stateProvider
         .state('home',{

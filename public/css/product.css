@@ -15,6 +15,12 @@ width: 10vw;
 }
 
 
+.starts{
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+
 /*.slider { display: none; }
 .slider.slick-initialized { display: block; }
 */
@@ -36,7 +42,8 @@ width: 10vw;
   background-color: black;
   color: white;
   padding: 1em;
-  margin-top: 4em;
+  margin-top: 1em;
+  margin-bottom: 2em;
 }
 
 

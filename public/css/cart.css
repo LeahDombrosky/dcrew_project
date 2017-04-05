@@ -19,3 +19,11 @@
   border: 1px solid black;
   float: right;
 }
+
+.cart-titles{
+  text-align: right;
+}
+
+.place-order-button{
+  text-align: center;
+}

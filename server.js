@@ -22,7 +22,7 @@ const db = app.get("db");
 
 
 
-app.use(bodyParser.json());
+app.use(bodyParser.json());   //makes it possible to post json to the server
 app.use(cors()); //lets everyone through
 app.use(session({
     secret: 'keyboard cat'
