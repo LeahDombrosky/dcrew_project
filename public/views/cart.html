@@ -37,7 +37,7 @@
                               <option value="Delete">Delete</option>
                             </select> -->
                         <h5>Price: {{product.price * default | currency}}</h5>
-                        <button ng-click='removeFromCart(product)'>Remove Item</button>
+                        <button class="cart_button" ng-click='removeFromCart(product)'>Remove Item</button>
                         <!--WILL USE DELETE OPTION INSTEAD -->
 
                     </div>
@@ -56,7 +56,7 @@
               <h4 class='cart-titles'>Subtotal: {{getSubTotal() | currency}}</h4>
               <h4 class= ' cart-titles'>Tax: {{ getTax() | currency}}</h4>
               <h4 class = 'cart-titles'>Shipping: $4.99</h4>
-              <hr>
+              <hr class='hr_cart'>
               <h3 class = 'cart-titles'>Total: {{getActualTotal() | currency}}</h3>
 
             </div>

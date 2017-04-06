@@ -1,5 +1,5 @@
 angular.module('myApp').controller('productsCtrl', function ($scope, mainSrv, cartService, $state, $stateParams){
-
+$scope.imageReady
 
 
   $scope.userId = 1;
@@ -20,7 +20,7 @@ angular.module('myApp').controller('productsCtrl', function ($scope, mainSrv, ca
 console.log($stateParams.id);
 function getProduct() {
   mainSrv.getProduct($stateParams.id).then(function(response){
-    $scope.product = response;
+    $scope.product = response; 
   });
 }
 

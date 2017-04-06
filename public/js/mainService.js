@@ -26,8 +26,8 @@ angular.module('myApp').service('mainSrv', function($http) {
             console.log(response);
             return response.data;
 
-    });
-};
+      });
+  };
 
 
   this.getProduct = function(id){
@@ -43,11 +43,11 @@ angular.module('myApp').service('mainSrv', function($http) {
       var singleProduct = response.data[0]
       singleProduct.reviews = reviews;
       // this.recentlyViewed = []
-      self.recentlyViewed.unshift(singleProduct);
-      // this.recentlyViewed.unshift(singleProduct);
-
-      console.log(self.recentlyViewed);
-      return singleProduct;
+      self.recentlyViewed = self.recentlyViewed.filter(c => c.id !== singleProduct.id)
+      self.recentlyViewed.push(singleProduct)
+      // self.recentlyViewed = newArr
+      // console.log(newArr);
+      return singleProduct
     });
   };
 
@@ -61,8 +61,13 @@ angular.module('myApp').service('mainSrv', function($http) {
   };
 
 
-  this.recentlyViewed = [];
+  self.recentlyViewed = [];
 
+//Remove duplicates in array
+  // self.uniqueRecentlyViewed = self.recentlyViewed.filter(function(val,idx){
+  //   console.log(this);
+  //   return self.recentlyViewed.indexOf(val) == idx;
+  // })
 
 
 });

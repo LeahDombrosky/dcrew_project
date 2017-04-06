@@ -84,7 +84,7 @@
                                 <!--REVIEWS TAB -->
 
 
-                                <div ng-repeat="review in product.reviews" class="review">
+                                <div ng-repeat="review in product.reviews track by $index" class="review">
                                     <div class="well well-lg">
                                         <h4 class="media-heading text-uppercase reviews">Morty </h4>
                                         <!-- <ul class="media-date text-uppercase reviews list-inline">
@@ -166,8 +166,6 @@
         // $('.product-page-body').slick({});
 
         setTimeout(function() {
-
-
             $('.slider-for').slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,
@@ -184,8 +182,8 @@
                 arrows: true,
                 focusOnSelect: true,
                 // variableWidth: true
-            }).hide().fadeIn('slow');
-        }, 500)
+            }).hide().fadeIn('3000');
+        }, 480)
     });
 
 
@@ -228,18 +226,11 @@
         });
 
 
-
-
-        // $("#rateYo").rateYo({
         //
-        //     rating: 4.0,
-        //     spacing: "5px",
-        //     multiColor: {
-        //
-        //         "startColor": "#FF0000", //RED
-        //         "endColor": "#00FF00" //GREEN
-        //     }
+        // new Drift(document.querySelector('img'), {
+        //   paneContainer: document.class('main-product-info')
         // });
+
 
 
 

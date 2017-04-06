@@ -1,23 +1,23 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h4>Recently Viewed</h4>
+            <h4 class="recently_viewed_text">Recently Viewed</h4>
         </div>
     </div>
 </div>
 
 
-<section class = 'recently-viewed container'>
-  <div class="row">
+<section class='recently-viewed container'>
+    <div class="row">
 
-<div class='col-md-2' ng-repeat='image in $ctrl.recentlyViewed'>
-  <!-- {{$ctrl.recentlyViewed}} -->
-    <img class="img-responsive" ng-src="{{image.img1}}">
+        <div class='col-md-2' ng-repeat='image in $ctrl.recentlyViewed track by image.id'>
+            <!-- {{$ctrl.recentlyViewed}} -->
+            <img class="img-responsive" ui-sref="product({id:image.id})" ng-src="{{image.img1}}">
 
-</div>
+        </div>
 
-    <!-- <div class="col-md-2"> -->
-    <!-- </div> -->
+        <!-- <div class="col-md-2"> -->
+        <!-- </div> -->
 
-  </div>
+    </div>
 </section>

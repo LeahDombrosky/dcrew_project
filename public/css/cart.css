@@ -12,7 +12,17 @@
   padding: 1em;
 }
 
+.cart_button{
+  background-color: black;
+    color: white;
+    /*padding: 1em;*/
+}
 
+.place-order-button{
+  background-color: green;
+  color: white;
+  
+}
 
 .total-container{
   float:right;
@@ -26,4 +36,14 @@
 
 .place-order-button{
   text-align: center;
+}
+
+
+.hr_cart{
+  border-top: 3px double #8c8b8b;
+}
+
+
+.cart-titles-container{
+  margin-top: 4em;
 }

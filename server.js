@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const session = require('express-session');
 const massive = require('massive');
+// const Drift = require('drift-zoom');
 
 const connectionString = "postgres://daanishnasir@localhost/dcrew";
 
@@ -31,10 +32,10 @@ app.use(express.static(__dirname + "/public"));
 
 
 app.get('/api/products/:id', function(req, res, next) {
-    console.log(req.params.id);
+    // console.log(req.params.id);
     db.getUniqueProduct([req.params.id], function(err, product) {
-      console.log(err)
-      console.log(product)
+      // console.log(err)
+      // console.log(product)
         if (err) {
             return next(err);
 
@@ -73,15 +74,24 @@ app.get("/api/products", function(req, res, next) {
 
 
 //cart
+app.get('/api/quantitySum', function (req,res,next){
+  db.getSumQuantityInCart(function(err, quantitySum){
+    console.log(err);
+    if(err){
+      return next(err);
+    }
+    console.log("The total number of cart items:", quantitySum);
+    return res.status(200).json(quantitySum);
+  });
+});
 
 app.get('/api/cart/:id', function(req, res, next) {
-    console.log(req.params.id);
-    db.getProductsInCart([req.params.id], function(err, products) {
+      db.getProductsInCart([req.params.id], function(err, products) {
         if (err) {
-            return next(err);
+          return next(err);
         }
         return res.status(200).json(products);
-    });
+        })
 });
 //post to cart
 
@@ -95,10 +105,10 @@ app.post('/api/cart/:id', function(req, res, next) {
         } else if (carts.length) {
             // If user cart exists assign cart variable the cart
             // and see if item exists in cart
-            console.log("Carts from GetCarts: ", carts);
+            // console.log("Carts from GetCarts: ", carts);
             const cart = carts[0];
             db.findItemInCart([cart.id, req.body.id], function(err, itemsFound) {
-              console.log("Find Item in Cart", itemsFound)
+              // console.log("Find Item in Cart", itemsFound)
               if (err) {
                 return next(err)
               } else if (itemsFound.length) {
@@ -107,7 +117,7 @@ app.post('/api/cart/:id', function(req, res, next) {
                 // Item will have id, cart_id, product_id, and quantity
                 const quantity = item.quantity + 1;
 
-                console.log("Quantity: ", quantity)
+                // console.log("Quantity: ", quantity)
                 db.UpdateItemInCart([item.id, quantity], function(err, updatedItem) {
                   if (err) {
                     return next(err)
@@ -123,7 +133,7 @@ app.post('/api/cart/:id', function(req, res, next) {
                   if (err) {
                     return next(err);
                   }
-                  console.log("CartItems from existing cart: ", cartItems);
+                  // console.log("CartItems from existing cart: ", cartItems);
                   // Return cart
                   return res.status(200).json(cart);
                 });
@@ -141,7 +151,7 @@ app.post('/api/cart/:id', function(req, res, next) {
                     return next(err);
 
                 }
-                console.log("Created cart: ", carts[0]);
+                // console.log("Created cart: ", carts[0]);
                 const cart = carts[0];
 
                 // Add product to cart
@@ -149,7 +159,7 @@ app.post('/api/cart/:id', function(req, res, next) {
                     if (err) {
                         return next(err);
                     }
-                    console.log("Cart items from new cart: ", cartItems);
+                    // console.log("Cart items from new cart: ", cartItems);
                     return res.status(200).json(cart);
                 });
             });
@@ -164,12 +174,12 @@ app.post('/api/cart/:id', function(req, res, next) {
 
 //delete from cart
 app.delete('/api/cart/:id', function(req,res,next){
-  console.log(req.query);
+  // console.log(req.query);
   db.findProductAndDelete([req.params.id, req.query.productId], function (err, cartItem){
     if(err){
       return next(err);
     }
-    console.log("Deleting this item from cart", cartItem);
+    // console.log("Deleting this item from cart", cartItem);
     return res.status(200).json(cartItem);
   })
 })
@@ -177,7 +187,7 @@ app.delete('/api/cart/:id', function(req,res,next){
 
 app.post('/api/products/review/:productId', function(req,res,next){
   db.postReview([req.params.productId, req.body.rating, req.body.comment], function(err, review){
-    console.log(err);
+    // console.log(err);
     if(err){
       return next (err);
     }
@@ -186,12 +196,14 @@ app.post('/api/products/review/:productId', function(req,res,next){
 });
 
 
+//get total quantity in cart  ----> to put in navbar
+
 
 
 
 
 app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
+    // console.log(`Listening on port ${port}`);
 });
 
 

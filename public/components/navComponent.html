@@ -24,23 +24,14 @@
 
             <li><a ui-sref="searchCategory({category: 'men'})">Men</a></li>
 
-            <li><a ui-sref='search'>Accessories</a></li>
+            <li><a ui-sref='home'>Accessories</a></li>
 
-            <li><a ui-sref='sale'>Sale</a></li>
-          <li>     <a ui-sref='cart'><i class="fa fa-shopping-bag" aria-hidden="true">&nbsp BAG</a></i></li>
+            <li><a ui-sref='home'>Sale</a></li>
+          <li>  <a ui-sref="cart({id:3})"><i class="fa fa-shopping-bag" aria-hidden="true">&nbsp BAG ({{$ctrl.quantitySum}})</a></i></li>
 
 
         </div>
     </div>
 </div>
 
-<hr>
-
-<style>
-
-hr{
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-}
-</style>
+<hr class='navbar_hr'>

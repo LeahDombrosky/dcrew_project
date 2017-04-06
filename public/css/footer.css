@@ -20,15 +20,23 @@ footer a {
 .footer_padding {
   padding: 0 20px;
 }
-/*#ass{
-  width: 100vw;
-  position: relative;
-  left: 0;
-  bottom: 0;
-}*/
+
+
+.img-responsive{
+    border: 1px solid #4b4b4c;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}
+
 
 
 .recently-viewed{
-  border: 1px solid red;
+  border: 3px solid #d6cfcf;
+  margin-bottom: 1em;
   ;
+}
+
+.recently_viewed_text{
+  padding-top: 1em;
 }
