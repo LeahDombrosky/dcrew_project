@@ -36,11 +36,11 @@ $scope.test = 'test is working';
 //   }
 
 
-      mainSrv.getProduct($stateParams.id).then(function(response){
-        $scope.product = response;
-      });
+      // mainSrv.getProduct($stateParams.id).then(function(response){
+      //   $scope.product = response;
+      // });
 
-
+    
 
 
   $scope.getProducts = function() {

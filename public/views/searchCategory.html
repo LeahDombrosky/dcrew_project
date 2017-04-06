@@ -7,38 +7,42 @@
 
 
 
-        <div style="padding-top:2em"class="col-md-12 text-center">
+        <div style="padding-top:2em" class="col-md-12 text-center">
             <button id="singlebutton" name="singlebutton" class="btn btn-primary">Filter</button>
 
         </div>
         <!-- <div class="featured_slick"> -->
 
-        <div class = "searchProductsContainer ">
+        <div class="searchProductsContainer">
             <ul class="categoryProducts" dir-paginate="product in products | itemsPerPage: pageSize | filter: searchFilter" current-page="currentPage">
 
 
 
-                <li ui-sref="product({id:product.id})">
-                    <img ng-src={{product.img1}}>
-                    <p>{{product.name}}</p>
-                    <p> {{product.price | currency}}</p>
-                    <!-- <hr> -->
-                </li>
+
+                    <li ui-sref="product({id:product.id})">
+                        <img ng-src={{product.img1}}>
+                        <p>{{product.name}}</p>
+                        <p> {{product.price | currency}}</p>
+                        <!-- <hr> -->
+                    </li>
+
+
+
 
 
 
             </ul>
 
-          </div>
-          <div class="row">
+        </div>
+        <div class="row pagination-position">
 
             <dir-pagination-controls class="col-md-12 text-center" boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
-          </div>
+        </div>
 
-<div class="">
-  <footer-component> </footer-component>
+        <div class="">
+            <footer-component> </footer-component>
 
-</div>
+        </div>
 
 
         <!-- <script type="text/javascript">

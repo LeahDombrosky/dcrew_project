@@ -18,9 +18,11 @@ angular.module('myApp').controller('productsCtrl', function ($scope, mainSrv, ca
 /////////////////////////////////////////////////////////////
 //get product
 console.log($stateParams.id);
-mainSrv.getProduct($stateParams.id).then(function(response){
-  $scope.product = response;
-});
+function getProduct() {
+  mainSrv.getProduct($stateParams.id).then(function(response){
+    $scope.product = response;
+  });
+}
 
 //add to cart
 $scope.addToBag = function(product){
@@ -38,9 +40,14 @@ $scope.addToBag = function(product){
 };
 
 
-//quantity calculate
+$scope.submit = function(productId, review){
+  mainSrv.submitReview(productId, review).then(function(response){
+    console.log(response);
+    getProduct()
+  });
+};
 
-
+getProduct()
 
 
 });

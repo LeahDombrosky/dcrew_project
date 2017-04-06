@@ -30,6 +30,19 @@ app.use(session({
 app.use(express.static(__dirname + "/public"));
 
 
+app.get('/api/products/:id', function(req, res, next) {
+    console.log(req.params.id);
+    db.getUniqueProduct([req.params.id], function(err, product) {
+      console.log(err)
+      console.log(product)
+        if (err) {
+            return next(err);
+
+        } else {
+            return res.status(200).json(product);
+        }
+    });
+});
 
 
 //get products  // get category
@@ -55,17 +68,6 @@ app.get("/api/products", function(req, res, next) {
 
 //get product
 
-app.get('/api/products/:id', function(req, res, next) {
-    console.log(req.params.id);
-    db.getUniqueProduct([req.params.id], function(err, product) {
-        if (err) {
-            return next(err);
-
-        } else {
-            return res.status(200).json(product);
-        }
-    });
-});
 
 
 
@@ -173,6 +175,15 @@ app.delete('/api/cart/:id', function(req,res,next){
 })
 
 
+app.post('/api/products/review/:productId', function(req,res,next){
+  db.postReview([req.params.productId, req.body.rating, req.body.comment], function(err, review){
+    console.log(err);
+    if(err){
+      return next (err);
+    }
+    return res.status(200).json(review);
+  })
+});
 
 
 

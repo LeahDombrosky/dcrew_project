@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 style='text-align:center'>Featured Products</h2>
+                    <h2 class='featured-products-home'>Featured Products</h2>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
         <div class="featured_slick">
 
             <div ng-repeat = "product in products">
-              <img ui-sref="product({id:product.id})" ng-src={{product.img1}}>
+              <img id="slider-image" ui-sref="product({id:product.id})" ng-src={{product.img1}}>
             </div>
             <!-- <div><a ui-sref="product({id: 1})"><img src="https://i.s-jcrew.com/is/image/jcrew/A2297_WD5374?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&wid=636&hei=636" alt=""></a></div>
             <div><img src="https://i.s-jcrew.com/is/image/jcrew/G0781_WU8428?fmt=jpeg&qlt=90,0&resMode=sharp&op_usm=.1,0,0,0&wid=636&hei=636" alt=""></div>
@@ -47,19 +47,19 @@
         </div> -->
 
 
-        <div class="container">
+        <!-- <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <h4>Recently Viewed</h4>
                 </div>
             </div>
-        </div>
+        </div> -->
 
     </section>
 </div>
 
 <!-- RECENTLY VIEWED COMPONENT  -->
-<section class = 'recently-viewed container-fluid'>
+<!-- <section class = 'recently-viewed container'>
   <div class="row">
     <div class="col-md-2">
         <h1>TEST</h1>
@@ -80,7 +80,11 @@
         <h1>TEST</h1>
     </div>
   </div>
-</section>
+</section> -->
+
+<recently-viewed> 
+
+</recently-viewed>
 
 <footer-component> </footer-component>
 

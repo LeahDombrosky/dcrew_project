@@ -4,7 +4,7 @@
   width: 100vw;
   margin: auto;
   flex-wrap: wrap-reverse;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 
@@ -30,6 +30,7 @@
 .logo{
   width: 7em;
   height: 1.75em;
+  font-size: 3.5em;
 }
 
 .header_department-nav{
@@ -52,6 +53,13 @@
 }
 
 
+.featured-products-home{
+  text-align:center;
+  font-size: 2em;
+
+
+}
+
 @media only screen and (max-width: 767px){
   .navbar-brand{
     font-size: 1.5em;
@@ -59,8 +67,25 @@
     padding: 0;
     position: relative;
     text-align: center;*/
-
   }
+
+
+  @media only screen and (max-width: 600px){
+    #slider-image{
+      height: 20em;
+      width: 15em;
+      margin-left:29.5em
+    }
+    .logo{
+      font-size: 1.6em;
+    }
+    .featured-products-home{
+      font-size: 1.5em;
+    }
+  }
+
+
+
   .form-control {
     width: 15%;
     display:inline-block

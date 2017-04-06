@@ -20,7 +20,18 @@ angular.module('myApp').controller('searchCategoryCtrl', function($scope, mainSr
     }
 
     $scope.currentPage = 1;
-    $scope.pageSize = 4;
+    console.log(window.innerWidth)
+    if (window.innerWidth >= 1460) {
+      $scope.pageSize = 4;
+    } else if (window.innerWidth >= 1200) {
+      $scope.pageSize = 3;
+    } else if (window.innerWidth >= 900){
+      $scope.pageSize = 2;
+    } else if (window.innerWidth >= 600) {
+      $scope.pageSize = 2;
+    } else {
+      $scope.pageSize = 1;
+    }
 
     //////
 

@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Recently Viewed</h4>
+        </div>
+    </div>
+</div>
+
+
+<section class = 'recently-viewed container'>
+  <div class="row">
+
+<div class='col-md-2' ng-repeat='image in $ctrl.recentlyViewed'>
+  <!-- {{$ctrl.recentlyViewed}} -->
+    <img class="img-responsive" ng-src="{{image.img1}}">
+
+</div>
+
+    <!-- <div class="col-md-2"> -->
+    <!-- </div> -->
+
+  </div>
+</section>

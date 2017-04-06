@@ -33,7 +33,7 @@
 
 
     <section class="main-product-info col-md-6 col-sm-6 col-xs-6">
-        <h2>{{product.name}}</h2>
+        <h2 class='product-name'>{{product.name}}</h2>
         <h3>{{product.price | currency}}</h3>
         <!-- stars start -->
         <div class="row">
@@ -81,8 +81,26 @@
                     <form name="outerForm" class="tab-form-demo">
                         <uib-tabset active="activeForm">
                             <uib-tab index="0" heading="Reviews">
+                                <!--REVIEWS TAB -->
 
-                                <div id="rateYo"></div>
+
+                                <div ng-repeat="review in product.reviews" class="review">
+                                    <div class="well well-lg">
+                                        <h4 class="media-heading text-uppercase reviews">Morty </h4>
+                                        <!-- <ul class="media-date text-uppercase reviews list-inline">
+
+                                        </ul> -->
+                                        <p class="media-comment">
+                                            {{review}}
+                                        </p>
+                                        <!-- <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
+                                        <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#replyOne"><span class="glyphicon glyphicon-comment"></span> 2 comments</a>
+                                    </div> -->
+                                    </div>
+                                </div>
+
+
+                                <!-- <div id="rateYo"></div> -->
                                 <!-- <ng-form name="nestedForm">
                                     <div class="form-group">
                                         <label>Rick</label>
@@ -92,8 +110,32 @@
                                     </div>
                                 </ng-form> -->
                             </uib-tab>
-                            <uib-tab index="1" heading="Features">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum tempore non asperiores ratione harum beatae in consequuntur fugiat officia ut maiores eius corporis, voluptas! Ad necessitatibus voluptas quae asperiores vitae!
+                            <uib-tab index="1" heading="Add Review">
+
+
+                                <form class="form-horizontal" id="commentForm" role="form">
+                                  <div class="form-group">
+                                    <!-- TODO:  Convert to stars -->
+                                      <label for="addRating" class="col-sm-2 control-label">Rating</label>
+                                      <div class="col-sm-10">
+                                          <input type="number" min="0" max="5" placeholder="0" ng-model='review.rating' class="form-control" name="addRating" id="addRating" rows="5" />
+                                      </div>
+                                  </div><div class="form-group">
+                                        <label for="email" class="col-sm-2 control-label">Comment</label>
+                                        <div class="col-sm-10">
+                                            <textarea ng-model='review.comment' class="form-control" name="addComment" id="addComment" rows="5"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button ng-click = "submit(product.id, review)" class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span> Submit Review</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+
+
                             </uib-tab>
                             <uib-tab index="2" heading="Notes">
                                 Williamsburg iPhone locavore hammock, ennui farm-to-table man braid whatever poke flexitarian selvage. Pinterest wolf gentrify, four dollar toast lyft gluten-free viral unicorn hexagon crucifix subway tile helvetica knausgaard fixie waistcoat. Freegan
@@ -112,7 +154,8 @@
 </div>
 <div class="alert alert-danger" ng-if="error">Sorry! There was a problem with your cart</div>
 
-
+<recently-viewed>
+</recently-viewed>
 
 <footer-component></footer-component>
 
@@ -149,54 +192,54 @@
 
 
     jQuery(document).ready(function() {
-    // This button will increment the value
-    $('.qtyplus').click(function(e) {
-        // Stop acting like a button
-        e.preventDefault();
-        // Get the field name
-        fieldName = $(this).attr('field');
-        // Get its current value
-        var currentVal = parseInt($('input[name=' + fieldName + ']').val());
-        // If is not undefined
-        if (!isNaN(currentVal)) {
-            // Increment
-            $('input[name=' + fieldName + ']').val(currentVal + 1);
-        } else {
-            // Otherwise put a 0 there
-            $('input[name=' + fieldName + ']').val(0);
-        }
-    });
-    // This button will decrement the value till 0
-    $(".qtyminus").click(function(e) {
-        // Stop acting like a button
-        e.preventDefault();
-        // Get the field name
-        fieldName = $(this).attr('field');
-        // Get its current value
-        var currentVal = parseInt($('input[name=' + fieldName + ']').val());
-        // If it isn't undefined or its greater than 0
-        if (!isNaN(currentVal) && currentVal > 0) {
-            // Decrement one
-            $('input[name=' + fieldName + ']').val(currentVal - 1);
-        } else {
-            // Otherwise put a 0 there
-            $('input[name=' + fieldName + ']').val(0);
-        }
-    });
+        // This button will increment the value
+        $('.qtyplus').click(function(e) {
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            fieldName = $(this).attr('field');
+            // Get its current value
+            var currentVal = parseInt($('input[name=' + fieldName + ']').val());
+            // If is not undefined
+            if (!isNaN(currentVal)) {
+                // Increment
+                $('input[name=' + fieldName + ']').val(currentVal + 1);
+            } else {
+                // Otherwise put a 0 there
+                $('input[name=' + fieldName + ']').val(0);
+            }
+        });
+        // This button will decrement the value till 0
+        $(".qtyminus").click(function(e) {
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            fieldName = $(this).attr('field');
+            // Get its current value
+            var currentVal = parseInt($('input[name=' + fieldName + ']').val());
+            // If it isn't undefined or its greater than 0
+            if (!isNaN(currentVal) && currentVal > 0) {
+                // Decrement one
+                $('input[name=' + fieldName + ']').val(currentVal - 1);
+            } else {
+                // Otherwise put a 0 there
+                $('input[name=' + fieldName + ']').val(0);
+            }
+        });
 
 
 
 
-    // $("#rateYo").rateYo({
-    // 
-    //     rating: 4.0,
-    //     spacing: "5px",
-    //     multiColor: {
-    //
-    //         "startColor": "#FF0000", //RED
-    //         "endColor": "#00FF00" //GREEN
-    //     }
-    // });
+        // $("#rateYo").rateYo({
+        //
+        //     rating: 4.0,
+        //     spacing: "5px",
+        //     multiColor: {
+        //
+        //         "startColor": "#FF0000", //RED
+        //         "endColor": "#00FF00" //GREEN
+        //     }
+        // });
 
 
 
