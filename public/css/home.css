@@ -17,6 +17,10 @@
 }
 
 
+.featured-products-home{
+  font-family: 'PT Sans', sans-serif;
+}
+
 @media only screen and (max-width: 767px){
   .jumbotron{
   height: 30vh;

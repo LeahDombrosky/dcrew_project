@@ -32,11 +32,21 @@ footer a {
 
 
 .recently-viewed{
-  border: 3px solid #d6cfcf;
+  /*border: 3px solid #d6cfcf;*/
   margin-bottom: 1em;
   ;
 }
 
+#recently_viewed_hr_top{
+   border: 1px solid #dedede !important;
+   margin-bottom: 10px;
+}
+
+#recently_viewed_hr_bottom{
+  border: 1px solid #dedede !important;
+}
+
 .recently_viewed_text{
-  padding-top: 1em;
+  /*padding-top: 1em;*/
+ font-family: 'Julius Sans One', sans-serif;
 }
