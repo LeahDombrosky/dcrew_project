@@ -3,6 +3,12 @@
 }
 
 
+.items__count_text{
+  font-family: 'Lato', sans-serif;
+
+}
+
+
 .product-image, .product-details{
   display: inline-block;
 }
@@ -19,15 +25,24 @@
 }
 
 .place-order-button{
-  background-color: green;
+  background-color: #FF884E;
   color: white;
-  
+  margin-top: 2em;
+
 }
 
 .total-container{
   float:right;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   float: right;
+  background-color: #E6E6E6;
+  font-family: 'Lato', sans-serif;
+
+}
+
+.shopping_bag_text{
+  font-family: 'Lato', sans-serif;
+
 }
 
 .cart-titles{
@@ -45,5 +60,11 @@
 
 
 .cart-titles-container{
-  margin-top: 4em;
+  margin-top: 2em;
+}
+
+
+.order_summary_text{
+  font-family: 'Lato', sans-serif;
+  text-align: center;
 }

@@ -4,8 +4,11 @@
 <div class="cart-container container">
 
 
-    <h1 style='text-align:center'>Shopping Bag</h1>
-    <h3>Cart Created On: {{products[0].date_created}}</h3>
+    <h1 class='shopping_bag_text'>SHOPPING BAG</h1>
+
+    <hr style="border-top: 1px solid black">
+
+    <h4 class = 'items__count_text'>ITEMS ({{quantitySum}})</h4>
 
     <div class="row">
         <!-- <div class="col-md-6">Name</div>
@@ -41,7 +44,6 @@
                         <!--WILL USE DELETE OPTION INSTEAD -->
 
                     </div>
-
                 </div>
 
 
@@ -49,15 +51,16 @@
             </div>
         </div>
 
+
         <div class='total-container col-md-6'>
-            <h1 style='text-align:center'>Order Summary</h1>
+            <h2 class='order_summary_text'>Order Summary</h2>
             <div class='cart-titles-container'>
 
-              <h4 class='cart-titles'>Subtotal: {{getSubTotal() | currency}}</h4>
-              <h4 class= ' cart-titles'>Tax: {{ getTax() | currency}}</h4>
+              <h4 style="padding:1em 0em 0em 0em" class='cart-titles'>Subtotal: {{getSubTotal() | currency}}</h4>
+              <h4 style="padding:1em 0em 1em 0em"class= ' cart-titles'>Tax: {{ getTax() | currency}}</h4>
               <h4 class = 'cart-titles'>Shipping: $4.99</h4>
               <hr class='hr_cart'>
-              <h3 class = 'cart-titles'>Total: {{getActualTotal() | currency}}</h3>
+              <h3 class = 'cart-titles'>Estimated Total: {{getActualTotal() | currency}}</h3>
 
             </div>
             <button class = 'place-order-button center-block'>Place Your Order</button>
@@ -70,8 +73,9 @@
 
 </div>
 
-</div>
+<hr style="border-top: 3px solid #dedede">
 
+</div>
 
 
 

@@ -5,12 +5,15 @@ $scope.cart =[]
 
   $scope.getCart = function() {
     cartService.getCart($stateParams.id).then(function(response) {
-      console.log(response)
-      $scope.cart = response.data
+      console.log(response);
+      $scope.cart = response.data;
     });
 
-  }
+  };
 
+$scope.quantitySum = cartService.quantitySum().then(function(response){
+    $scope.quantitySum = response.data[0].sum;
+  });
 
 
   $scope.removeFromCart = function(product){
@@ -18,11 +21,11 @@ $scope.cart =[]
     cartService.removeFromCart($stateParams.id, product.id).then(function(response){
       console.log(response);
       if (response.status === 200) {
-          $scope.getCart()
+          $scope.getCart();
       }
     }).catch(function(err) {
-      console.log(err)
-    })
+      console.log(err);
+    });
   };
 
   $scope.changeQuantity = function(product, x) {
